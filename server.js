@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
+const PROJECT5_DB = process.env.PROJECT5_DB;
 
 // Fix Depreciation Warnings from Mongoose*
 // May or may not need these depending on your Mongoose version
@@ -24,11 +24,11 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 // Connect to Mongo
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
+mongoose.connect(PROJECT5_DB ,  { useNewUrlParser: true});
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('connected', () => console.log('mongo connected: ', PROJECT5_DB));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 //___________________
