@@ -42,17 +42,20 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+// //use method override
+// app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+const gigsController = require('./controllers/gigs.js');
+app.use('/gigs', gigsController);
+
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
 
 //___________________
 //Listener
